@@ -4,13 +4,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
+
+    protected String[] students = {"Foo Bar", "John Doe"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, students);
+        ListView studentList = (ListView) findViewById(R.id.listView);
+        studentList.setAdapter(adapter);
     }
 
     @Override
